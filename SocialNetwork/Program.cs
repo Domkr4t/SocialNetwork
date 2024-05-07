@@ -1,7 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using SocialNetwork.DAL;
+using SocialNetwork.DAL.Interfaces;
+using SocialNetwork.DAL.Repositories;
+using SocialNetwork.Domain.Entity;
+using SocialNetwork.Service.Implementations;
+using SocialNetwork.Service.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+builder.Services.AddScoped<IBaseRepository<UserEntity>, UserRepository>();
+builder.Services.AddScoped<IBaseRepository<MessageEntity>, MessageRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+var connectionString = builder.Configuration.GetConnectionString("MSSQL");
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
 
 var app = builder.Build();
 
@@ -22,6 +42,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Auth}/{action=Index}/{id?}");
 
 app.Run();
