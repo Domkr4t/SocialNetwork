@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SocialNetwork.Service", "SocialNetwork.Service", "{1C077F82-65F9-4079-81DA-E471FE006C6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.DAL", "SocialNetwork.DAL\SocialNetwork.DAL.csproj", "{56EFCB94-AEFC-4D80-B16C-7C1EE68F979B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEA2C93F-FD57-4E04-87FB-782BB143EDA2} = {DEA2C93F-FD57-4E04-87FB-782BB143EDA2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.Domain", "SocialNetwork.Domain\SocialNetwork.Domain.csproj", "{DEA2C93F-FD57-4E04-87FB-782BB143EDA2}"
 EndProject
