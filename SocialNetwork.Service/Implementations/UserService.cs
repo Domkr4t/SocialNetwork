@@ -79,7 +79,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<OneMessageViewModel>
                     {
-                        Description = "Сообщение не найдено.",
+                        Description = "Письмо не найдено.",
                         StatusCode = StatusCode.MessageNotFound
                     };
                 }
@@ -208,7 +208,7 @@ namespace SocialNetwork.Service.Implementations
 
                 return new BaseResponse<SendMessageViewModel>
                 {
-                    Description = "Сообщение отправлено.",
+                    Description = "Письмо отправлено.",
                     StatusCode = StatusCode.Ok
                 };
             }
@@ -238,7 +238,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<MessageViewModel>
                     {
-                        Description = $"Сообщение не найдено.",
+                        Description = $"Письмо не найдено.",
                         StatusCode = StatusCode.MessageNotFound
                     };
                 }
@@ -249,7 +249,7 @@ namespace SocialNetwork.Service.Implementations
 
                 return new BaseResponse<MessageViewModel>
                 {
-                    Description = $"Сообщение {message.Header} прочитано.",
+                    Description = $"Письмо {message.Header} прочитано.",
                     StatusCode = StatusCode.Ok
                 };
             }

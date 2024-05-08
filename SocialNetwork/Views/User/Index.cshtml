@@ -24,7 +24,7 @@
 <hr />
 <div class="card">
     <div class="card-body">
-        <h5 class="d-flex flex-column justify-content-center align-items-center">Отправить сообщение</h5>
+        <h5 class="d-flex flex-column justify-content-center align-items-center">Отправить письмо</h5>
         <form id="sendMessageForm">
             <div class="col-md-12">
                 <input id="sendMessageFromUserId" name="FromUserId" class="form-control mb-2" hidden />
@@ -38,7 +38,7 @@
                 <input id="sendMessageHeader" name="Header" class="form-control mb-2" />
             </div>
             <div class="col-md-12">
-                <label class="col-form-label">Тело письма:</label>
+                <label class="col-form-label">Текст письма:</label>
                 <input id="sendMessageBody" name="Body" class="form-control mb-2" />
             </div>
 
@@ -91,7 +91,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="messageModalLabel">Просмотр сообщения</h5>
+                <h5 class="modal-title" id="messageModalLabel">Просмотр письма</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -104,7 +104,7 @@
                         <input type="text" class="form-control" id="messageHeader" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="messageBody">Тело сообщения:</label>
+                        <label for="messageBody">Письмо:</label>
                         <textarea class="form-control" id="messageBody" rows="3" readonly></textarea>
                     </div>
                     <div class="form-group">
