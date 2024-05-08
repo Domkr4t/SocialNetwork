@@ -1,0 +1,118 @@
+﻿﻿@using SocialNetwork.Domain.Enum
+@{
+    ViewData["Title"] = "Главная страница";
+}
+
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="d-flex flex-column justify-content-center align-items-center">Пользователь</h5>
+        <br />
+        <form id="userForm">
+            <div class="col-md-12">
+                <input id="userLogin" name="Login" class="form-control mb-2" readonly />
+                <input id="userSurname" name="Surname" class="form-control mb-2" readonly />
+                <input id="userName" name="Name" class="form-control mb-2" readonly />
+                <input id="userMiddlename" name="Middlename" class="form-control mb-2" readonly />
+            </div>
+            <div class="text-center mt-3">
+                <a href="/Auth/AuthentificationPage" class="btn btn-success text-decoration-none">Выйти из аккаунта</a>
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <h5 class="d-flex flex-column justify-content-center align-items-center">Отправить сообщение</h5>
+        <form id="sendMessageForm">
+            <div class="col-md-12">
+                <input id="sendMessageFromUserId" name="FromUserId" class="form-control mb-2" hidden />
+            </div>
+            <div class="col-md-12">
+                <label class="col-form-label">Логин получателя:</label>
+                <input id="sendMessageLogin" name="Login" class="form-control mb-2" />
+            </div>
+            <div class="col-md-12">
+                <label class="col-form-label">Заголовок письма:</label>
+                <input id="sendMessageHeader" name="Header" class="form-control mb-2" />
+            </div>
+            <div class="col-md-12">
+                <label class="col-form-label">Тело письма:</label>
+                <input id="sendMessageBody" name="Body" class="form-control mb-2" />
+            </div>
+
+            <div class="text-center">
+                <button id="sendMessageButton" type="submit" class="btn btn-success mt-2">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label class="col-form-label">Логин отправителя:</label>
+                <input name="LoginFilter" type="text" class="form-control" />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label">С:</label>
+                <input name="FromFilter" type="text" class="form-control" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label">По:</label>
+                <input name="ToFilter" type="text" class="form-control" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label">Статус:</label>
+                <select id="messageStatusFilter" class="form-control mb-2" asp-items="Html.GetEnumSelectList<MessageStatus>()"></select>
+            </div>
+        </div>
+        <div id="messagesContainer" class="table-responsive">
+            <table id="messagesTable" class="table table-light table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center" hidden>Id</th>
+                        <th class="text-center">Тема письма</th>
+                        <th class="text-center">Дата отправки</th>
+                        <th class="text-center">От</th>
+                        <th class="text-center" hidden>Статус</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Модальное окно -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">Просмотр сообщения</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="messageForm">
+
+                    <div class="form-group">
+                        <label for="messageHeader">Заголовок:</label>
+                        <input type="text" class="form-control" id="messageHeader" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageBody">Тело сообщения:</label>
+                        <textarea class="form-control" id="messageBody" rows="3" readonly></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageDate">Дата:</label>
+                        <input type="text" class="form-control" id="messageDate" readonly>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

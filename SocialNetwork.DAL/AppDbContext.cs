@@ -5,7 +5,11 @@ namespace SocialNetwork.DAL
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+            //Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
 
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<MessageEntity> Messages { get; set; }

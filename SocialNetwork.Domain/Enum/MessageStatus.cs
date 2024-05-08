@@ -7,13 +7,13 @@ namespace SocialNetwork.Domain.Enum
     /// </summary>
     public enum MessageStatus
     {
-        [Display(Name = "Unread")]
-        Unread = 0,
+        [Display(Name = "Все")]
+        All = 0,
 
-        [Display(Name = "Read")]
+        [Display(Name = "Прочитанные")]
         IsRead = 1,
 
-        [Display(Name = "All")]
-        All = 2,
+        [Display(Name = "Не прочитанные")]
+        Unread = 2,
     }
 }

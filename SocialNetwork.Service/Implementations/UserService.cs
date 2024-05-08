@@ -79,7 +79,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<OneMessageViewModel>
                     {
-                        Description = "Message not found.",
+                        Description = "Сообщение не найдено.",
                         StatusCode = StatusCode.MessageNotFound
                     };
                 }
@@ -125,7 +125,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<UserViewModel>
                     {
-                        Description = "User not found",
+                        Description = "Пользователь не найден.",
                         StatusCode = StatusCode.UserNotFound
                     };
                 }
@@ -133,6 +133,7 @@ namespace SocialNetwork.Service.Implementations
                 var user = new UserViewModel
                 {
                     Id = userEntity.Id,
+                    Login = userEntity.Login,
                     Surname = userEntity.Surname,
                     Name = userEntity.Name,
                     Middlename = userEntity.Middlename,
@@ -170,7 +171,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<SendMessageViewModel>
                     {
-                        Description = "No sender found.",
+                        Description = "Отправитель не найден.",
                         StatusCode = StatusCode.UserNotFound
                     };
                 }
@@ -184,7 +185,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<SendMessageViewModel>
                     {
-                        Description = $"User {model.Login} was not found.",
+                        Description = $"Пользователь {model.Login} не найден.",
                         StatusCode = StatusCode.UserNotFound
                     };
                 }
@@ -207,7 +208,7 @@ namespace SocialNetwork.Service.Implementations
 
                 return new BaseResponse<SendMessageViewModel>
                 {
-                    Description = "The message has been sent.",
+                    Description = "Сообщение отправлено.",
                     StatusCode = StatusCode.Ok
                 };
             }
@@ -237,7 +238,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<MessageViewModel>
                     {
-                        Description = $"Message not found.",
+                        Description = $"Сообщение не найдено.",
                         StatusCode = StatusCode.MessageNotFound
                     };
                 }
@@ -248,7 +249,7 @@ namespace SocialNetwork.Service.Implementations
 
                 return new BaseResponse<MessageViewModel>
                 {
-                    Description = $"Message {message.Header} is read.",
+                    Description = $"Сообщение {message.Header} прочитано.",
                     StatusCode = StatusCode.Ok
                 };
             }

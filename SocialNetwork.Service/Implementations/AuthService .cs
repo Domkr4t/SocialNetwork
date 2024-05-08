@@ -32,7 +32,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<UserViewModel>()
                     {
-                        Description = $"Invalid login or password.",
+                        Description = $"Неправильный логин или пароль.",
                         StatusCode = StatusCode.UserNotFound
                     };
                 }
@@ -77,7 +77,7 @@ namespace SocialNetwork.Service.Implementations
                 {
                     return new BaseResponse<UserViewModel>()
                     {
-                        Description = $"There is already a user with this login.",
+                        Description = $"Пользователь с таким логином уже существует.",
                         StatusCode = StatusCode.UserAlreadyExists
                     };
                 }
@@ -105,7 +105,7 @@ namespace SocialNetwork.Service.Implementations
 
                 return new BaseResponse<UserViewModel>()
                 {
-                    Description = $"User with login {model.Login} created.",
+                    Description = $"Пользователь {model.Login} создан.",
                     Data = user,
                     StatusCode = StatusCode.Ok
                 };
